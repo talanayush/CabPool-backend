@@ -11,7 +11,6 @@ const ticketRoutes = require("./routes/ticketRoutes");
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({ origin: "https://cab-pool1-frontend.vercel.app", credentials: true }));
-app.use(cors({ origin: "http://localhost:5173/", credentials: true }));
 
 // Routes
 
