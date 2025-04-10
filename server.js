@@ -4,13 +4,15 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/authRoutes");
+const ticketRoutes = require("./routes/ticketRoutes")
 
 const app = express();
-const ticketRoutes = require("./routes/ticketRoutes");
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
+
 app.use(cors({ origin: "https://cab-pool1-frontend.vercel.app", credentials: true }));
+
 
 // Routes
 
@@ -27,7 +29,7 @@ mongoose.connect(process.env.MONGO_URI, {
 
 app.use("/api/auth", authRoutes);
 
-app.use("/tickets", require("./routes/ticketRoutes"));
+
 app.use("/tickets", ticketRoutes);
 
 const PORT = process.env.PORT || 5000;
