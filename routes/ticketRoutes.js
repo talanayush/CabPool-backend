@@ -1,7 +1,7 @@
 const express = require("express");
 const Ticket = require("../models/Tickets");
-const User = require("../models/User");
 const router = express.Router();
+const User = require("../models/User");
 const mongoose = require("mongoose");
 
 // ✅ Save a ticket
@@ -38,6 +38,7 @@ router.get("/all", async (req, res) => {
     res.status(500).json({ error: "Server error while fetching tickets" });
   }
 });
+
 
 router.patch("/close/:ticketId", async (req, res) => {
   try {
@@ -95,6 +96,7 @@ router.get("/get-upi/:enrollmentNumber", async (req, res) => {
     res.status(500).json({ error: "Server error while fetching UPI ID" });
   }
 });
+
 
 
 router.post("/join/:ticketId", async (req, res) => {
