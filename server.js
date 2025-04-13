@@ -12,7 +12,7 @@ const app = express();
 const server = createServer(app); // Create HTTP server
 const io = new Server(server, {
   cors: {
-    origin: "https://cab-pool1-frontend.vercel.app/", // Update based on frontend URL
+    origin: "https://cab-pool1-frontend.vercel.app", // Update based on frontend URL
     credentials: true,
   },
 });
@@ -20,7 +20,7 @@ const io = new Server(server, {
 // Middleware
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({ origin: "https://cab-pool1-frontend.vercel.app/", credentials: true }));
+app.use(cors({ origin: "https://cab-pool1-frontend.vercel.app", credentials: true }));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {
