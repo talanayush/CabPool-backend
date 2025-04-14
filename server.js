@@ -8,6 +8,7 @@ const { Server } = require("socket.io");
 const authRoutes = require("./routes/authRoutes");
 const ticketRoutes = require("./routes/ticketRoutes");
 const chatRoutes = require("./routes/chatRoutes");
+const feedbackRoutes = require('./routes/feedback');
 const app = express();
 const server = createServer(app); // Create HTTP server
 const io = new Server(server, {
@@ -55,7 +56,7 @@ io.on("connection", (socket) => {
 
 
 app.use("/chat", chatRoutes);
-
+app.use("/feedback", feedbackRoutes);
 
 const PORT = process.env.PORT || 5000;
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
